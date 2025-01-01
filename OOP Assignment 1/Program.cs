@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography.X509Certificates;
+using System.Threading.Channels;
 
 namespace OOP_Assignment_1
 {
@@ -24,6 +25,18 @@ namespace OOP_Assignment_1
     {
         public string Name { get; set; }
         public int Age { get; set; }
+    }
+
+    #endregion
+
+    #region Q3 enum
+
+    public enum Season
+    {
+        Spring,
+        Summer,
+        Autumn,
+        Winter
     }
 
     #endregion
@@ -57,7 +70,40 @@ namespace OOP_Assignment_1
 
             #endregion
 
-            #region Q3: 
+            #region Q3: Create an enum called "Season" with the four seasons (Spring, Summer, Autumn, Winter) as its members. Write a C# program that takes a season name as input from the user and displays the corresponding month range for that season. Note range for seasons ( spring march to may , summer june to august , autumn September to November , winter December to February)
+
+            Console.WriteLine("Write the Season name:");
+            string season = Console.ReadLine();
+
+            bool flag = Enum.TryParse(season, true, out Season SeasonEnum); //true bec not case sensitive
+
+            if (flag) {
+
+                switch (SeasonEnum) {
+
+                    case Season.Spring:
+                        Console.WriteLine("Spring: March to May");
+                        break;
+                    case Season.Summer:
+                        Console.WriteLine("Summer: June to August");
+                        break;
+                    case Season.Autumn:
+                        Console.WriteLine("Autumn: September to November");
+                        break;
+                    case Season.Winter:
+                        Console.WriteLine("Winter: December to February");
+                        break;
+                    default:
+                        Console.WriteLine("Invalid Season");
+                        break;
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid Season");
+            }
+
 
             #endregion
 
