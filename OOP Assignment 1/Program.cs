@@ -84,6 +84,46 @@ namespace OOP_Assignment_1
 
     #endregion
 
+    #region Q8 (Part 2 Q1) : Design and implement a Class for the employees in a company:
+
+    public class  Employee
+    {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string SecurityLevel { get; set; }
+        public double Salary { get; set; }
+        public DateTime HireDate { get; set; }
+        public string Gender { get; set; }
+
+        public Employee(int _Id, string _Name, string _SecurityLevel, double _Salary, DateTime _HireDate, string _Gender)
+        {
+            Id = _Id;
+            Name = _Name;
+            SecurityLevel = _SecurityLevel;
+            Salary = _Salary;
+            HireDate = _HireDate;
+            Gender = _Gender;
+        }
+
+        public void DisplayEmployeeDetails()
+        {
+            Console.WriteLine("====================================");
+            Console.WriteLine($"Employee ID: {Id}");
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Security Level: {SecurityLevel}");
+            Console.WriteLine($"Salary: ${Salary}");
+            Console.WriteLine($"Hire Date: {HireDate.ToShortDateString()}");
+            Console.WriteLine($"Gender: {Gender}");
+            Console.WriteLine("====================================");
+        }
+
+
+
+    }
+
+    #endregion
+
 
     internal class Program
     {
@@ -221,29 +261,42 @@ namespace OOP_Assignment_1
 
             #region Q7: Create a struct called "Person" with properties "Name" and "Age". Write a C# program that takes details of 3 persons as input from the user and displays the name and age of the oldest person.
 
-            Person[] persons = new Person[3];
+            //Person[] persons = new Person[3];
 
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine($"Enter details for Person {i + 1}:");
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine($"Enter details for Person {i + 1}:");
 
-                Console.Write("Name: ");
-                persons[i].Name = Console.ReadLine();
+            //    Console.Write("Name: ");
+            //    persons[i].Name = Console.ReadLine();
 
-                Console.Write("Age: ");
-                persons[i].Age = int.Parse(Console.ReadLine());
-            }
+            //    Console.Write("Age: ");
+            //    persons[i].Age = int.Parse(Console.ReadLine());
+            //}
 
-            Person oldestPerson = persons[0];
-            for (int i = 1; i < 3; i++)
-            {
-                if (persons[i].Age > oldestPerson.Age)
-                {
-                    oldestPerson = persons[i];
-                }
-            }
+            //Person oldestPerson = persons[0];
+            //for (int i = 1; i < 3; i++)
+            //{
+            //    if (persons[i].Age > oldestPerson.Age)
+            //    {
+            //        oldestPerson = persons[i];
+            //    }
+            //}
 
-            Console.WriteLine($"\nThe oldest person is {oldestPerson.Name}");
+            //Console.WriteLine($"\nThe oldest person is {oldestPerson.Name}");
+
+            #endregion
+
+            #region Q8 (Part 2 Q1) : Design and implement a Class for the employees in a company:
+
+            Employee emp1 = new Employee(1, "Mai", "High", 15000, new DateTime(2015, 3, 15), "Female");
+            Employee emp2 = new Employee(2, "Ahmed", "Medium", 75000, new DateTime(2018, 7, 20), "Male");
+
+            Console.WriteLine("Employee 1 Details:");
+            emp1.DisplayEmployeeDetails();
+            
+            Console.WriteLine("Employee 2 Details:");
+            emp2.DisplayEmployeeDetails();
 
             #endregion
 
