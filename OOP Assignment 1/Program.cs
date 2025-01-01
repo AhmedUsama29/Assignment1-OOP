@@ -91,12 +91,12 @@ namespace OOP_Assignment_1
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public string SecurityLevel { get; set; }
+        public SecurityLevel SecurityLevel { get; set; }
         public double Salary { get; set; }
         public HiringDate HireDate { get; set; }
         public Gender EmpGender { get; set; }
 
-        public Employee(int _Id, string _Name, string _SecurityLevel, double _Salary, HiringDate _HireDate, Gender _EmpGender)
+        public Employee(int _Id, string _Name, SecurityLevel _SecurityLevel, double _Salary, HiringDate _HireDate, Gender _EmpGender)
         {
             Id = _Id;
             Name = _Name;
@@ -146,6 +146,7 @@ namespace OOP_Assignment_1
         }
 
     }
+    //changed in the Employee class
 
     #endregion
 
@@ -157,7 +158,20 @@ namespace OOP_Assignment_1
         F
     }
 
-    //changed in the Q8 class
+    //changed in the Employee class
+
+    #endregion
+
+    #region Q11 (Part 2 Q4): Assign the following security privileges to the employee (guest, Developer, secretary and DBA) in a form of Enum
+
+    public enum SecurityLevel
+    {
+        Guest,
+        Developer,
+        Secretary,
+        DBA
+    }
+    //changed in the Employee class
 
     #endregion
 
@@ -325,10 +339,10 @@ namespace OOP_Assignment_1
 
             #region Q8 (Part 2 Q1) : Design and implement a Class for the employees in a company:
 
-            Employee emp1 = new Employee(1, "Mai", "High", 15000, new HiringDate(16, 3, 2019), Gender.F);
-            Employee emp2 = new Employee(2, "Ahmed", "Medium", 75000, new HiringDate(20, 7, 2018), Gender.M);
+            Employee emp1 = new Employee(1, "Mai", SecurityLevel.Guest, 15000, new HiringDate(16, 3, 2019), Gender.F);
+            Employee emp2 = new Employee(2, "Ahmed", SecurityLevel.DBA, 75000, new HiringDate(20, 7, 2018), Gender.M);
 
-            //changed because of Q10 [Hiring Date - Gender]
+            //changed because of Q10 [Hiring Date - Gender - SecurityLevel]
 
             Console.WriteLine("Employee 1 Details:");
             emp1.DisplayEmployeeDetails();
@@ -352,7 +366,11 @@ namespace OOP_Assignment_1
 
             #endregion
 
+            #region Q11 (Part 2 Q4): Assign the following security privileges to the employee (guest, Developer, secretary and DBA) in a form of Enum
 
+            //changed in the Employee class
+
+            #endregion
 
         }
     }
