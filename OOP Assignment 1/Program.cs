@@ -1,5 +1,7 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace OOP_Assignment_1
 {
@@ -84,6 +86,102 @@ namespace OOP_Assignment_1
 
     #endregion
 
+    #region Q8 (Part 2 Q1) : Design and implement a Class for the employees in a company:
+
+    public class  Employee
+    {
+
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public SecurityLevel SecurityLevel { get; set; }
+        public double Salary { get; set; }
+        public HiringDate HireDate { get; set; }
+        public Gender EmpGender { get; set; }
+
+        public Employee(int _Id, string _Name, SecurityLevel _SecurityLevel, double _Salary, HiringDate _HireDate, Gender _EmpGender)
+        {
+            Id = _Id;
+            Name = _Name;
+            SecurityLevel = _SecurityLevel;
+            Salary = _Salary;
+            HireDate = _HireDate;
+            EmpGender = _EmpGender;
+        }
+
+        public void DisplayEmployeeDetails()
+        {
+            Console.WriteLine("====================================");
+            Console.WriteLine($"Employee ID: {Id}");
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Security Level: {SecurityLevel}");
+            Console.WriteLine($"Salary: ${Salary}");
+            Console.WriteLine($"Hire Date: {HireDate.GetHiringDate()}");
+            Console.WriteLine($"Gender: {EmpGender}");
+            Console.WriteLine("====================================");
+        }
+
+        //Q12
+        public override string ToString()
+        {
+            return System.String.Format("Employee ID: {0}\nName: {1}\nSecurity Level: {2}\nSalary: {3:C}\nGender: {4}\nHiring Date: {5}",
+                                 Id, Name, SecurityLevel, Salary, EmpGender, HireDate.GetHiringDate());
+        }
+
+
+    }
+
+    #endregion
+
+    #region Q9 (Part 2 Q2) : Develop a Class to represent the Hiring Date Data: consisting of fields to hold the day, month and Years.
+
+
+    public class HiringDate
+    {
+        public int Day { get; set; }
+        public int Month { get; set; }
+        public int Year { get; set; }
+
+        public HiringDate(int day, int month, int year)
+        {
+            Day = day;
+            Month = month;
+            Year = year;
+        }
+
+        public string GetHiringDate()
+        {
+            return $"{Day}/{Month}/{Year}";
+        }
+
+    }
+    //changed in the Employee class
+
+    #endregion
+
+    #region Q10 (Part 2 Q3) : We need to restrict the Gender field to be only M or F [Male or Female] 
+
+    public enum Gender
+    {
+        M,
+        F
+    }
+
+    //changed in the Employee class
+
+    #endregion
+
+    #region Q11 (Part 2 Q4): Assign the following security privileges to the employee (guest, Developer, secretary and DBA) in a form of Enum
+
+    public enum SecurityLevel
+    {
+        Guest,
+        Developer,
+        Secretary,
+        DBA
+    }
+    //changed in the Employee class
+
+    #endregion
 
     internal class Program
     {
@@ -221,29 +319,89 @@ namespace OOP_Assignment_1
 
             #region Q7: Create a struct called "Person" with properties "Name" and "Age". Write a C# program that takes details of 3 persons as input from the user and displays the name and age of the oldest person.
 
-            Person[] persons = new Person[3];
+            //Person[] persons = new Person[3];
 
-            for (int i = 0; i < 3; i++)
-            {
-                Console.WriteLine($"Enter details for Person {i + 1}:");
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    Console.WriteLine($"Enter details for Person {i + 1}:");
 
-                Console.Write("Name: ");
-                persons[i].Name = Console.ReadLine();
+            //    Console.Write("Name: ");
+            //    persons[i].Name = Console.ReadLine();
 
-                Console.Write("Age: ");
-                persons[i].Age = int.Parse(Console.ReadLine());
-            }
+            //    Console.Write("Age: ");
+            //    persons[i].Age = int.Parse(Console.ReadLine());
+            //}
 
-            Person oldestPerson = persons[0];
-            for (int i = 1; i < 3; i++)
-            {
-                if (persons[i].Age > oldestPerson.Age)
+            //Person oldestPerson = persons[0];
+            //for (int i = 1; i < 3; i++)
+            //{
+            //    if (persons[i].Age > oldestPerson.Age)
+            //    {
+            //        oldestPerson = persons[i];
+            //    }
+            //}
+
+            //Console.WriteLine($"\nThe oldest person is {oldestPerson.Name}");
+
+            #endregion
+
+            #region Q8 (Part 2 Q1) : Design and implement a Class for the employees in a company:
+
+            //Employee emp1 = new Employee(1, "Mai", SecurityLevel.Guest, 15000, new HiringDate(16, 3, 2019), Gender.F);
+            //Employee emp2 = new Employee(2, "Ahmed", SecurityLevel.DBA, 75000, new HiringDate(20, 7, 2018), Gender.M);
+
+            ////changed because of Q10 [Hiring Date - Gender - SecurityLevel]
+
+            //Console.WriteLine("Employee 1 Details:");
+            //emp1.DisplayEmployeeDetails();
+
+            //Console.WriteLine("Employee 2 Details:");
+            //emp2.DisplayEmployeeDetails();
+
+        #endregion
+
+            #region Q9 (Part 2 Q2): Develop a Class to represent the Hiring Date Data : consisting of fields to hold the day, month and Years.
+
+        //HiringDate hiringDate = new HiringDate(29, 4, 2019);
+
+        //    hiringDate.DisplayHiringDate();
+
+        #endregion
+
+            #region Q10 (Part 2 Q3): We need to restrict the Gender field to be only M or F [Male or Female] 
+
+        //Done and changed in the Q8 class , Q8 implementation
+
+        #endregion
+
+            #region Q11 (Part 2 Q4): Assign the following security privileges to the employee (guest, Developer, secretary and DBA) in a form of Enum
+
+        //changed in the Employee class
+
+        #endregion
+
+            #region Q12 (Part 2 Q5): We want to provide the Employee Class to represent Employee data in a string Form (override ToString ()), display employee salary in a currency format. [ use String.Format Function]
+
+        //Employee emp3 = new Employee(3,"Omar",SecurityLevel.Developer,19000,new HiringDate(15,6,2020),Gender.M);
+        //Console.WriteLine(emp3.ToString()); 
+
+        #endregion
+
+            #region Q13 (Part 2 Q6): Create an array of Employees with size three a DBA, Guest and the third one is security officer who have full permissions. (Employee [] EmpArr;) Notes: Implement All the Necessary Member Functions on the Class(Getters, Setters) Define all the Necessary Constructors for the Class Allow NO RUNTIME errors if the user inputs any data Write down all the necessary Properties(Instead of setters and getters)
+
+
+                Employee[] EmpArr = new Employee[3];
+
+                // there is no security officer in the enum so I will use the secretary
+                EmpArr[0] = new Employee(1, "Mariam", SecurityLevel.DBA, 80000, new HiringDate(10, 5, 2015), Gender.F);
+                EmpArr[1] = new Employee(2, "Mohamed", SecurityLevel.Guest, 30000, new HiringDate(15, 8, 2018), Gender.M);
+                EmpArr[2] = new Employee(3, "Moataz", SecurityLevel.Secretary, 120000, new HiringDate(20, 11, 2016), Gender.M);
+
+                foreach (var emp in EmpArr)
                 {
-                    oldestPerson = persons[i];
+                    Console.WriteLine(emp.ToString());
+                    Console.WriteLine("==========================");
                 }
-            }
-
-            Console.WriteLine($"\nThe oldest person is {oldestPerson.Name}");
 
             #endregion
 
