@@ -19,7 +19,7 @@ namespace OOP_Assignment_1
 
     #endregion
 
-    #region Q2 struct
+    #region Q2 & Q7 struct
 
     public struct Person
     {
@@ -83,6 +83,7 @@ namespace OOP_Assignment_1
 
 
     #endregion
+
 
     internal class Program
     {
@@ -188,7 +189,7 @@ namespace OOP_Assignment_1
             //if (Flag) {
 
             //    Console.WriteLine($"{color} is a primary color");
-            
+
             //}
             //else
             //{
@@ -199,22 +200,50 @@ namespace OOP_Assignment_1
 
             #region Q6: Create a struct called "Point" to represent a 2D point with properties "X" and "Y". Write a C# program that takes two points as input from the user and calculates the distance between them.
 
-            Console.WriteLine("Enter Point 1 (x,y)");
-            Console.WriteLine("X:");
-            int x = int.Parse(Console.ReadLine());
-            Console.WriteLine("Y:");
-            int y = int.Parse(Console.ReadLine());
-            Point point1 = new Point { X = x, Y = y };
+            //Console.WriteLine("Enter Point 1 (x,y)");
+            //Console.WriteLine("X:");
+            //int x = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Y:");
+            //int y = int.Parse(Console.ReadLine());
+            //Point point1 = new Point { X = x, Y = y };
 
-            Console.WriteLine("Enter Point 2 (x,y)");
-            Console.WriteLine("X:");
-            x = int.Parse(Console.ReadLine());
-            Console.WriteLine("Y:");
-            y = int.Parse(Console.ReadLine());
-            Point point2 = new Point { X = x, Y = y };
+            //Console.WriteLine("Enter Point 2 (x,y)");
+            //Console.WriteLine("X:");
+            //x = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Y:");
+            //y = int.Parse(Console.ReadLine());
+            //Point point2 = new Point { X = x, Y = y };
 
-            Console.WriteLine($"The Distance Between them is: {point1.DistanceCalc(point2)}");
+            //Console.WriteLine($"The Distance Between them is: {point1.DistanceCalc(point2)}");
 
+
+            #endregion
+
+            #region Q7: Create a struct called "Person" with properties "Name" and "Age". Write a C# program that takes details of 3 persons as input from the user and displays the name and age of the oldest person.
+
+            Person[] persons = new Person[3];
+
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"Enter details for Person {i + 1}:");
+
+                Console.Write("Name: ");
+                persons[i].Name = Console.ReadLine();
+
+                Console.Write("Age: ");
+                persons[i].Age = int.Parse(Console.ReadLine());
+            }
+
+            Person oldestPerson = persons[0];
+            for (int i = 1; i < 3; i++)
+            {
+                if (persons[i].Age > oldestPerson.Age)
+                {
+                    oldestPerson = persons[i];
+                }
+            }
+
+            Console.WriteLine($"\nThe oldest person is {oldestPerson.Name}");
 
             #endregion
 
