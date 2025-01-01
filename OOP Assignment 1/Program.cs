@@ -65,6 +65,25 @@ namespace OOP_Assignment_1
 
     #endregion
 
+    #region Q6 struct
+
+    public struct Point {
+
+        public int X { get; set; }
+        public int Y { get; set; }
+
+        public double DistanceCalc (Point p2)
+        {
+            
+                return Math.Sqrt(Math.Pow(p2.X - X, 2) + Math.Pow(p2.Y - Y, 2));
+            
+        }
+
+    }
+
+
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -161,20 +180,41 @@ namespace OOP_Assignment_1
 
             #region Q5: Create an enum called "Colors" with the basic colors (Red, Green, Blue) as its members. Write a C# program that takes a color name as input from the user and displays a message indicating whether the input color is a primary color or not.
 
-            Console.WriteLine("Enter the color:");
-            string color = Console.ReadLine();
+            //Console.WriteLine("Enter the color:");
+            //string color = Console.ReadLine();
 
-            bool Flag = Enum.TryParse(color, true, out Colors ColorEnum);
+            //bool Flag = Enum.TryParse(color, true, out Colors ColorEnum);
 
-            if (Flag) {
+            //if (Flag) {
 
-                Console.WriteLine($"{color} is a primary color");
+            //    Console.WriteLine($"{color} is a primary color");
             
-            }
-            else
-            {
-                Console.WriteLine("Invalid Color or not primary");
-            }
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Invalid Color or not primary");
+            //}
+
+            #endregion
+
+            #region Q6: Create a struct called "Point" to represent a 2D point with properties "X" and "Y". Write a C# program that takes two points as input from the user and calculates the distance between them.
+
+            Console.WriteLine("Enter Point 1 (x,y)");
+            Console.WriteLine("X:");
+            int x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Y:");
+            int y = int.Parse(Console.ReadLine());
+            Point point1 = new Point { X = x, Y = y };
+
+            Console.WriteLine("Enter Point 2 (x,y)");
+            Console.WriteLine("X:");
+            x = int.Parse(Console.ReadLine());
+            Console.WriteLine("Y:");
+            y = int.Parse(Console.ReadLine());
+            Point point2 = new Point { X = x, Y = y };
+
+            Console.WriteLine($"The Distance Between them is: {point1.DistanceCalc(point2)}");
+
 
             #endregion
 
