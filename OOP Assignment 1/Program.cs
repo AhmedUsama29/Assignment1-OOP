@@ -325,7 +325,7 @@ namespace OOP_Assignment_1
 
                 #endregion
 
-                #region Q9: Develop a Class to represent the Hiring Date Data: consisting of fields to hold the day, month and Years.
+                #region Q9: Develop a Class to represent the Hiring Date Data : consisting of fields to hold the day, month and Years.
 
                 HiringDate hiringDate = new HiringDate(29, 4, 2019);
 
