@@ -54,6 +54,17 @@ namespace OOP_Assignment_1
 
     #endregion
 
+    #region Q5 enum
+
+    public enum Colors
+    {
+        Red,
+        Green,
+        Blue
+    }
+
+    #endregion
+
     internal class Program
     {
         static void Main(string[] args)
@@ -122,28 +133,47 @@ namespace OOP_Assignment_1
 
             #region Q4: Assign the following Permissions (Read, write, Delete, Execute) in a form of Enum. Create Variable from previous Enum to Add and Remove Permission from variable, check if specific Permission is existed inside variable
 
-            Permissions permissions = (Permissions)10;
+            //Permissions permissions = (Permissions)10;
 
-            //current permissions
-            Console.WriteLine("Current Permissions: " + permissions);
+            ////current permissions
+            //Console.WriteLine("Current Permissions: " + permissions);
 
-            // Remove a permission
-            permissions ^= Permissions.Write;
+            //// Remove a permission
+            //permissions ^= Permissions.Write;
 
-            // Add a permission
-            permissions ^= Permissions.Read;
+            //// Add a permission
+            //permissions ^= Permissions.Read;
 
-            // Display the permissions after
-            Console.WriteLine("Permissions after: " + permissions);
+            //// Display the permissions after
+            //Console.WriteLine("Permissions after: " + permissions);
 
-            //check
-            if ((permissions & Permissions.Read) == Permissions.Read)
-            {
-                Console.WriteLine("Read permission exists");
+            ////check
+            //if ((permissions & Permissions.Read) == Permissions.Read)
+            //{
+            //    Console.WriteLine("Read permission exists");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Read permission does not exist");
+            //}
+
+            #endregion
+
+            #region Q5: Create an enum called "Colors" with the basic colors (Red, Green, Blue) as its members. Write a C# program that takes a color name as input from the user and displays a message indicating whether the input color is a primary color or not.
+
+            Console.WriteLine("Enter the color:");
+            string color = Console.ReadLine();
+
+            bool Flag = Enum.TryParse(color, true, out Colors ColorEnum);
+
+            if (Flag) {
+
+                Console.WriteLine($"{color} is a primary color");
+            
             }
             else
             {
-                Console.WriteLine("Read permission does not exist");
+                Console.WriteLine("Invalid Color or not primary");
             }
 
             #endregion
